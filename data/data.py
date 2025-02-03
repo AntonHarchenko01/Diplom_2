@@ -26,3 +26,14 @@ class UserData:
         "password": "12345678",
         "name": ""
     }
+
+    data_user_registered = {
+        "email": "test-data@yandex.ru",
+        "password": "password",
+    }
+
+    data_user_unregistered = {
+        "email": "harchenko012@yandex.ru",
+        "password": "12345678"
+    }
+

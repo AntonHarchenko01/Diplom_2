@@ -13,7 +13,7 @@ class TestCreateUser:
         payload = UserData.data_user_correct
         response = requests.post(Urls.REGISTER_USER, data=payload)
         assert response.status_code == 200
-        assert response.json().get("success") == True
+        assert response.json().get("success") is True
         token = {'authorization': response.json().get('accessToken')}
         delete_user(token)
 
