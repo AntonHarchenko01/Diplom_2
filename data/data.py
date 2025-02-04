@@ -3,14 +3,14 @@ from faker import Faker
 
 class UserData:
     data_user_correct = {
-        "email": "harchenko@yandex.ru",
+        "email": "harchenko24@yandex.ru",
         "password": "12345678",
-        "name": "HarchenkoA"
+        "name": "HarchenkoA24"
     }
     data_user_double = {
-        "email": "userdouble1@yandex.ru",
+        "email": "userdouble24@yandex.ru",
         "password": "12345678",
-        "name": "UserDouble1"
+        "name": "UserDouble24"
     }
     data_user_not_email = {
         "email": "",
@@ -39,7 +39,7 @@ class UserData:
     }
 
     @staticmethod
-    def create_random_user_data():
+    def create_faker_user_data():
         faker = Faker()
         user_data = {
             "email": faker.email(),
@@ -48,4 +48,7 @@ class UserData:
         }
         return user_data
 
+class Ingredients:
+    data_ingredients = {"ingredients": ["61c0c5a71d1f82001bdaaa70", "61c0c5a71d1f82001bdaaa74"]}
+    data_ingredients_incorrect = {"ingredients": ["0", "1"]}
 
