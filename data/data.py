@@ -1,3 +1,4 @@
+from faker import Faker
 
 
 class UserData:
@@ -36,4 +37,15 @@ class UserData:
         "email": "harchenko012@yandex.ru",
         "password": "12345678"
     }
+
+    @staticmethod
+    def create_random_user_data():
+        faker = Faker()
+        user_data = {
+            "email": faker.email(),
+            "password": faker.password(),
+            "name": faker.name()
+        }
+        return user_data
+
 
