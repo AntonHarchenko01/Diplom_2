@@ -27,7 +27,7 @@ class TestCreateOrder:
     def test_unsuccessful_creating_order_without_ingredients_unsuccessful_creating(self):
         response = requests.post(Handlers.CREATE_ORDER)
         assert response.status_code ==400
-        assert response.json()['message'] == "Ingredient ids must be provided"
+        assert response.json()["message"] == "Ingredient ids must be provided"
 
     @allure.title("Тест создания заказа с неверным хешем ингредиентов, с авторизацией")
     @allure.description("Тест проверят, что нельзя создать заказ с неверными хешами ингредиентов, с авторизацией, код = 500 и сообщение Internal Server Error")
@@ -35,4 +35,4 @@ class TestCreateOrder:
         token = {"Authorization": create_random_user_for_registration[2]}
         response = requests.post(Handlers.CREATE_ORDER, data= Ingredients.data_ingredients_incorrect, headers= token)
         assert response.status_code == 500
-        assert 'Internal Server Error' in response.text
+        assert "Internal Server Error" in response.text
