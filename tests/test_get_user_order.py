@@ -1,7 +1,7 @@
 import allure
 import requests
 
-from data.data import Ingredients
+from data.data import Ingredients, ErrorText
 from data.urls import Handlers
 from conftest import create_random_user_for_registration
 
@@ -21,4 +21,4 @@ class TestGetUserOrder:
     def test_unsuccessful_get_order_not_login_order_unsuccessful_get(self):
         response = requests.get(Handlers.GET_ORDER)
         assert response.status_code == 401
-        assert response.json()["message"] == "You should be authorised"
+        assert response.json()["message"] == ErrorText.UNAUTHORIZED

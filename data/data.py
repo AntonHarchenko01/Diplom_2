@@ -52,3 +52,10 @@ class Ingredients:
     data_ingredients = {"ingredients": ["61c0c5a71d1f82001bdaaa70", "61c0c5a71d1f82001bdaaa74"]}
     data_ingredients_incorrect = {"ingredients": ["0", "1"]}
 
+class ErrorText:
+    UNAUTHORIZED = "You should be authorised"
+    NOT_INGREDIENTS = "Ingredient ids must be provided"
+    SERVER_ERROR = "Internal Server Error"
+    USER_EXISTS = 'User already exists'
+    FIELD_IS_EMPTY = "Email, password and name are required fields"
+

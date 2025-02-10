@@ -4,7 +4,7 @@ import allure
 import requests
 
 from conftest import create_random_user_for_registration
-from data.data import UserData
+from data.data import UserData, ErrorText
 from data.urls import Handlers
 
 
@@ -42,5 +42,5 @@ class TestChangeUserData:
         payload = UserData.create_faker_user_data()
         response = requests.patch(Handlers.INFORMATION_USER, data= payload)
         assert response.status_code ==401
-        assert response.json()["message"] == "You should be authorised"
+        assert response.json()["message"] == ErrorText.UNAUTHORIZED
 

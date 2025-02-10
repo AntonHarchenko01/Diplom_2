@@ -1,7 +1,7 @@
 import allure
 import pytest
 import requests
-from data.data import UserData
+from data.data import UserData, ErrorText
 from data.helper import delete_user
 from data.urls import Handlers
 
@@ -25,7 +25,7 @@ class TestCreateUser:
         token = {'Authorization': response.json().get('accessToken')}
         response_double = requests.post(Handlers.REGISTER_USER, data=payload)
         assert response_double.status_code == 403
-        assert 'User already exists' in response_double.text
+        assert ErrorText.USER_EXISTS in response_double.text
         delete_user(token)
 
     @allure.title("Тест неудачного создания пользователя, без обязательного поля")
@@ -34,7 +34,7 @@ class TestCreateUser:
     def test_unsuccessful_creating_user_data_without_fields_required_fields(self, user_data):
         response = requests.post(Handlers.REGISTER_USER, data=user_data)
         assert response.status_code == 403
-        assert "Email, password and name are required fields" in response.text
+        assert ErrorText.FIELD_IS_EMPTY in response.text
 
 
 
